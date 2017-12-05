@@ -1,0 +1,61 @@
+1.  program = keywordProg braceBlock									
+2.  braceBlock = '{' variableGroup statements '}'
+3.  variableGroup = keywordVariables parenthesesVariableList
+4.  variableGroup = epsilon
+5.  parenthesesVariableList = '(' variableList ')'
+6.  variableList = variableDeclaration ';' variableList
+7.  variableList = epsilon
+8.  variableDeclaration = basekind variableID
+9.  basekind = int
+10. basekind = float
+11. basekind = string
+12. variableID = id
+13. statements = statement ';' statements
+14. statements = epsilon
+15. statement = statementAssign
+16. statement = statementPrint
+17. statement = statementWhile
+18. statementAssign = variableID '=' expression
+19. statementPrint = keywordPrint parenthesesExpressions
+20. statementWhile = keywordWhile parenthesesExpression braceBlock
+21. parenthesesExpressions = '(' expressionList ')'
+22. parenthesesExpression = '(' expression ')'
+23. expressionList = expression moreExpressions
+24. moreExpressions = ',' expressionList
+25. moreExpressions = epsilon
+26. expression = rightTerm expressionOpt
+27. expressionOpt =  operatorRelation rightTerm
+28. expressionOpt = epsilon
+29. rightTerm = term rightTermOpt
+30. rightTermOpt = operatorAdd term rightTermOpt
+31. rightTermOpt = epsilon
+32. term = fact termOpt
+33. termOpt = operatorMultiply fact termOpt
+34. termOpt = epsilon
+35. fact = int
+36. fact = float
+37. fact = string
+38. fact = variableID
+39. fact = parenthesesExpression
+40. operatorRelation = '=='
+41. operatorRelation = '!='
+42. operatorRelation = '<'
+43. operatorRelation = '>'
+44. operatorRelation = '<='
+45. operatorRelation = '>='
+46. operatorAdd = '+'
+47. operatorAdd = '-'
+48. operatorMultiply = '*'
+49. operatorMultiply = '/'
+50. operatoryMultiply = '^'
+51. statement = statementIf
+52. statementIf = keywordIf parenthesesExpression braceBlock statementElse
+53. statementElse = keywordElse braceBlock
+54. operatorMultiply = '%'
+55. statementElse = epsilon
+
+terminals: '{', '}', '(', ')', int, float, string, id, ',', '=', '!=', '<', '>', '<=', '>=', '+', '-', '*', '/', '^', keywordProg, Variables, Print, While, $, if, else, %
+non-terminals: program, braceBlock, variableGroup, parenthesesVariableList, variableList, variableDeclaration, basekind, variableID, statements, statement, statementAssign,
+	       statementPrint, statementWhile, parenthesesExpressions, parenthesesExpression, expressionList, moreExpressions, expression, expressionOpt, rightTerm, rightTermOpt, term,
+	       termOpt, fact, operatorRelation, operatorAdd, operatorMultiply, statementIf, statementElse
+non-terminals that have epsilon rule: variableGroup, variableList, statements, moreExpressions, expressionOpt, rightTermOpt, termOpt, statementElse
