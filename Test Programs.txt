@@ -1,0 +1,251 @@
+prog{
+print(5);
+}
+$
+Result: prints out 5
+
+prog{
+print(5+10);
+}
+$
+Result: prints out 15
+
+prog{
+print(5*2);
+}
+$
+Result: prints out 10
+
+prog{
+vars(integer x;)
+x=10;
+print(x);
+}
+$
+Result: prints out 10
+
+prog{
+vars(float x;)
+x=5.5;
+print(x);
+}
+$
+Result: prints out 5.5
+
+prog{
+vars(string x;)
+x="wow this works";
+print(x);
+}
+$
+Result: prints out "wow this works"
+
+prog{
+vars(integer x;)
+x=5;
+print(1+x+2);
+}
+$
+Result: prints out 8
+
+prog{
+vars(string x; string y;)
+x="wow does this ";
+y="actually work?";
+print(x+y);
+}
+$
+Result: prints out "wow does this actually work?"
+
+prog{
+vars(string x; string y; string z;)
+x="wow does this ";
+y="actually work?";
+z=x+y;
+print(z);
+}
+$
+Result: prints out "wow does this actually work?"
+
+prog{
+vars(integer x;)
+x=5;
+while(x<10){
+print("this should print 5 times");
+x=x+1;
+};
+}
+$
+Result: prints out "this should print 5 times" 5 times
+
+prog{
+while(5==5){
+print("this is infinite!");
+};
+}
+$
+Result: prints out "this is infinite" an infinite amount of times
+
+prog{
+vars(integer x; integer y;)
+x=5;
+y=0;
+while(x>y){
+print("This should print 5 times");
+y=y+1;
+};
+}
+$
+Result: prints out "This should print 5 times" 5 times
+
+prog{
+vars(string x; string y;)
+x="hello";
+y="wow";
+while (x!="hellowow"){
+print("This should print once");
+x=x+y;
+};
+}
+$
+Result: prints out "This should print once"
+
+prog{
+vars(string x; integer y;)
+x="hello";
+y=0;
+while (y<5){
+print(x+y);
+y=y+1;
+};
+print(10);
+}
+$
+Result: prints out "hello0", "hello1", "hello2", "hello3", "hello4", 10
+
+prog{
+vars(integer x;)
+x=5;
+while(x<10){ 
+vars(integer y;)
+y=x+1;
+print(y);
+x=y;
+print(x);
+};
+}
+$
+Result: prints out 6, 6, 7, 7, 8, 8, 9, 9, 10, 10
+
+prog{
+vars(integer x;)
+x=0;
+while(x<5){
+vars(integer y;)
+y=x+1;
+x=y;
+print("x: ", x, " y: ", y);
+};
+}
+$
+Result: prints out:
+	x: 1 y: 1
+	x: 2 y: 2
+	x: 3 y: 3
+	x: 4 y: 4
+	x: 5 y: 5
+
+prog{
+vars(integer x;)
+x=0;
+while(x+2 < 5+2){
+print(x);
+x=x+1;
+};
+}
+$
+Result: prints out: 0, 1, 2, 3, 4
+
+prog{
+vars(integer outer;)
+outer=1;
+while(outer<3){
+vars(integer inner;)
+inner=5;
+while(inner<8){
+print("outer: ", outer, " ", "inner: ", inner);
+inner=inner+1;
+};
+outer=outer+1;
+};
+}
+$
+Result: prints out:
+	outer: 1 inner: 5
+	outer: 1 inner: 6
+	outer: 1 inner: 7
+	outer: 2 inner: 5
+	outer: 2 inner: 6
+	outer: 2 inner: 7
+
+prog{
+vars(integer x; integer x;)
+x=5;
+print(x);
+}
+$
+Result: prints out "ERROR: duplicate variable name"
+
+prog{
+if (5==5){
+print("5 is equal to 5");
+};
+if (5!=5){
+print("5 is not equal to 5");
+};
+}
+$
+Result: prints out "5 is equal to 5"
+
+prog {
+if ( 5 != 5 ){
+print("5 is not equal to 5");
+} else {
+print("5 is equal to 5");
+};
+}
+$
+Result: prints out "5 is equal to 5"
+
+prog{
+vars(integer x;)
+x=0;
+while (x < 11){
+vars(integer y;)
+y= x % 2;
+if (y == 0){
+print(x, " is: " , "even");
+} else {
+print(x, " is: ", "odd");
+};
+x=x+1;
+};
+}
+$
+Result: 0 is: even
+	1 is: odd
+	2 is: even
+	3 is: odd
+	4 is: even
+	5 is: odd
+	6 is: even
+	7 is: odd
+	8 is: even
+	9 is: odd
+	10 is: even
+
+
+
+
+
+
